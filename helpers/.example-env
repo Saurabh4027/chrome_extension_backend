@@ -1,6 +1,0 @@
-// This is just an Example of how my env look if you want to you this backend you have to replace this info with your own
-
-GMAIL_PASSWORD=<mail_app_specific_password>
-GMAIL=<mail_id>
-MONGO_URI=<MONGO_CONNECTION_DB_URL>
-OPENAI_KEY=<openai_api_key>

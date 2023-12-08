@@ -1,6 +1,7 @@
 const axios = require("axios")
 const cheerio = require("cheerio")
 const OpenAI = require("openai")
+require("dotenv").config();
 
 async function getHeadline(articleUrl) {
     try {
