@@ -4,7 +4,8 @@ require('dotenv').config()
 const cors = require("cors");
 const sendOtpEmail = require("./helpers/sendOtp");
 const Otp = require("./models/otpModel");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const generateAlphanumericCode = require("./helpers/generateCode");
 const app = express();
 app.use(cors())
 app.use(express.json());
@@ -26,7 +27,7 @@ app.post('/validate-email', async (req, res) => {
     if (!email || !email.includes('@')) {
       return res.status(400).json({ error: 'Invalid email address' });
     }
-    const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
+    const otp = generateAlphanumericCode(6);
     sendOtpEmail(email, otp);
     await Otp.findOneAndUpdate({ email }, { email,otp }, { upsert: true });
     res.json({ success: true, message: 'OTP sent successfully' });
