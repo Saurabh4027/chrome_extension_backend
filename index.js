@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json());
 
 app.get("/",(req,res)=>{
-    res.send("THIS IS THE HOME ROUTE")
+    res.send("THIS IS THE HOME ROUTE - Laxya Rupeja")
 })
 
 app.post("/rhyme-headlines",async(req,res)=>{
