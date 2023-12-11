@@ -38,7 +38,7 @@ app.post('/validate-email', async (req, res) => {
       return res.status(400).json({ error: 'Invalid email address' });
     }
     const otp = generateAlphanumericCode(6);
-    sendOtpEmail(email, otp);
+    sendOtpEmail(email, otp,transporter);
     await Otp.findOneAndUpdate({ email }, { email,otp }, { upsert: true });
     res.json({ success: true, message: 'OTP sent successfully' });
 });
