@@ -4,9 +4,19 @@ require('dotenv').config()
 const cors = require("cors");
 const sendOtpEmail = require("./helpers/sendOtp");
 const Otp = require("./models/otpModel");
+const nodemailer = require("nodemailer");
 const mongoose = require("mongoose");
 const generateAlphanumericCode = require("./helpers/generateCode");
 const app = express();
+const transporter = nodemailer.createTransport({
+        host:"smtp.gmail.com",
+        port : 587,
+        secure : false,
+        auth:{
+            user:process.env.GMAIL,
+            pass:process.env.GMAIL_PASSWORD
+        }
+})
 app.use(cors())
 app.use(express.json());
 
