@@ -2,7 +2,6 @@ const express = require("express");
 const getRhyme = require("./helpers/helper");
 require('dotenv').config()
 const cors = require("cors");
-const sendOtpEmail = require("./helpers/sendOtp");
 const Otp = require("./models/otpModel");
 const nodemailer = require("nodemailer");
 const mongoose = require("mongoose");
